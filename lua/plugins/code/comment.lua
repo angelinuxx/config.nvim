@@ -63,7 +63,11 @@ return {
         desc = "Previous todo comment",
       },
       { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Project todos" },
-      { "<leader>t", "<cmd>TodoQuickFix<cr>", desc = "Open todo quick fix" },
+      {
+        "<leader>ct",
+        "<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>",
+        desc = "Open todo quick fix for current buffer",
+      },
     },
   },
 }

@@ -63,6 +63,10 @@ keymap({ "n", "v" }, "<leader>d", [["_d]])
 -- keymap("v", "<C-K>", ":m '<-2<CR>gv=gv")
 -- keymap("i", "<C-K>", "<Esc>:m .-2<CR>==gi")
 
+-- remap tabs
+keymap("n", "<leader>tn", ":tabnew<CR>")
+keymap("n", "<leader>tq", ":tabclose<CR>")
+
 -- remap split windows
 keymap("n", "<leader>sv", "<C-w>v") -- split vertically
 keymap("n", "<leader>sh", "<C-w>s") -- split horizontally

@@ -14,6 +14,7 @@ return {
       { "<leader>g", group = " Git" },
       { "<leader>h", group = " Harpoon" },
       { "<leader>s", group = " Splits" },
+      { "<leader>t", group = " Tabs" },
       { "<leader>j", group = " Json manipulation" },
       { "<leader>x", group = " Floaterm" },
       { "<leader>xm", group = " Music For Programmers" },
