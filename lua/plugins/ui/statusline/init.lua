@@ -42,7 +42,7 @@ return {
             "progress",
           },
           lualine_y = {},
-          lualine_z = { "location" },
+          lualine_z = { "location", components.selectionCount },
         },
         inactive_sections = {
           lualine_a = {},
