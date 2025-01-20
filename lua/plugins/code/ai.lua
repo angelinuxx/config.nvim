@@ -37,6 +37,24 @@ return {
           max_tokens = 4095,
         },
       }
+
+      local wk = require "which-key"
+      wk.add {
+        { "<leader>ac", group = "ChatGPT" },
+        { "<leader>acc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
+        { "<leader>ace", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction", mode = { "n", "v" } },
+        { "<leader>acg", "<cmd>ChatGPTRun grammar_correction<CR>", desc = "Grammar Correction", mode = { "n", "v" } },
+        { "<leader>act", "<cmd>ChatGPTRun translate<CR>", desc = "Translate", mode = { "n", "v" } },
+        { "<leader>ack", "<cmd>ChatGPTRun keywords<CR>", desc = "Keywords", mode = { "n", "v" } },
+        { "<leader>acd", "<cmd>ChatGPTRun docstring<CR>", desc = "Docstring", mode = { "n", "v" } },
+        { "<leader>aca", "<cmd>ChatGPTRun add_tests<CR>", desc = "Add Tests", mode = { "n", "v" } },
+        { "<leader>aco", "<cmd>ChatGPTRun optimize_code<CR>", desc = "Optimize Code", mode = { "n", "v" } },
+        { "<leader>acs", "<cmd>ChatGPTRun summarize<CR>", desc = "Summarize", mode = { "n", "v" } },
+        { "<leader>acf", "<cmd>ChatGPTRun fix_bugs<CR>", desc = "Fix Bugs", mode = { "n", "v" } },
+        { "<leader>acx", "<cmd>ChatGPTRun explain_code<CR>", desc = "Explain Code", mode = { "n", "v" } },
+        { "<leader>acr", "<cmd>ChatGPTRun roxygen_edit<CR>", desc = "Roxygen Edit", mode = { "n", "v" } },
+        { "<leader>acl", "<cmd>ChatGPTRun code_readability_analysis<CR>", desc = "Code Readability Analysis", mode = { "n", "v" } },
+      }
     end,
     dependencies = {
       "MunifTanjim/nui.nvim",
