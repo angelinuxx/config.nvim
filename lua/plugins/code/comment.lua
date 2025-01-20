@@ -20,7 +20,10 @@ return {
             -- end)
             -- if not err and inside_decorator then
             --   return "<!-- %s -->"
-            -- end
+          end
+          -- comment string for dotenv
+          if vim.bo.filetype == "dotenv" then
+            return "# %s"
           end
         end,
       },
