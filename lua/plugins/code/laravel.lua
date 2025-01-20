@@ -1,13 +1,11 @@
 return {
   {
-    enabled = true,
     "adalessa/laravel.nvim",
     dependencies = {
-      -- "nvimtools/none-ls.nvim",
-      "nvim-treesitter/nvim-treesitter",
-      "nvim-telescope/telescope.nvim",
       "tpope/vim-dotenv",
+      "nvim-telescope/telescope.nvim",
       "MunifTanjim/nui.nvim",
+      "nvim-telescope/telescope.nvim",
     },
     cmd = { "Sail", "Artisan", "Composer", "Npm", "Yarn", "Laravel" },
     keys = {
@@ -16,16 +14,8 @@ return {
       { "<leader>lm", ":Laravel related<cr>" },
       -- { "<leader>lt", ":Laravel tinker<cr>" },
     },
-    config = function()
-      require("laravel").setup {
-        features = {
-          null_ls = {
-            enable = false,
-          },
-        },
-      }
-      require("telescope").load_extension "laravel"
-    end,
+    event = { "VeryLazy" },
+    config = true,
   },
   {
     "ccaglak/larago.nvim", -- laravel go to blade/view/components
