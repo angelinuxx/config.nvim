@@ -13,6 +13,9 @@ return {
     local noice = require "noice"
 
     noice.setup {
+      cmdline = {
+        view = "cmdline",
+      },
       routes = {
         {
           filter = {
@@ -34,7 +37,7 @@ return {
             height = "auto",
           },
         },
-        popupmenu = {
+        --[[ popupmenu = {
           relative = "editor",
           position = {
             row = 18,
@@ -51,7 +54,7 @@ return {
           win_options = {
             winhighlight = { Normal = "Normal", FloatBorder = "DiagnosticInfo" },
           },
-        },
+        }, ]]
       },
       lsp = {
         override = {
@@ -61,7 +64,7 @@ return {
         },
       },
       presets = {
-        bottom_search = false, -- use a classic bottom cmdline for search
+        bottom_search = true, -- use a classic bottom cmdline for search (when false works only if cmdline view != cmdline)
         command_palette = false, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = true, -- enables an input dialog for inc-rename.nvim

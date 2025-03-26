@@ -6,7 +6,6 @@ vim.g.mapleader = " "
 vim.opt.guicursor = ""
 vim.opt.termguicolors = true
 vim.opt.background = "dark"
-vim.opt.guifont = "Caskavya Cove Nerd Font:h11"
 
 -- disable netrw
 vim.g.loaded_netrw = 1

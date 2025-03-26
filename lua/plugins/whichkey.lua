@@ -7,6 +7,7 @@ return {
   end,
   opts = {
     spec = {
+      { "<leader>a", group = " AI related" },
       { "<leader>c", group = " Code" },
       { "<leader>d", group = " Dap" },
       { "<leader>e", group = " File explorer" },
@@ -14,6 +15,7 @@ return {
       { "<leader>g", group = " Git" },
       { "<leader>h", group = " Harpoon" },
       { "<leader>s", group = " Splits" },
+      { "<leader>t", group = " Tabs" },
       { "<leader>j", group = " Json manipulation" },
       { "<leader>x", group = " Floaterm" },
       { "<leader>xm", group = " Music For Programmers" },

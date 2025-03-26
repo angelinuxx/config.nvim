@@ -3,7 +3,7 @@ local lazy_status = require "lazy.status"
 
 return {
   capslock = {
-   require "capslock".status_string,
+    require("capslock").status_string,
   },
   unsaved = {
     function()
@@ -26,14 +26,6 @@ return {
     lazy_status.updates,
     cond = lazy_status.has_updates,
     color = { fg = "#ff9e64" },
-  },
-  git_repo = {
-    function()
-      if #vim.api.nvim_list_tabpages() > 1 and vim.fn.trim(vim.fn.system "git rev-parse --is-inside-work-tree") == "true" then
-        return vim.fn.trim(vim.fn.system "basename `git rev-parse --show-toplevel`")
-      end
-      return ""
-    end,
   },
   codeium = {
     function()
@@ -122,6 +114,18 @@ return {
     colored = true,
     on_click = function()
       vim.cmd [[LspInfo]]
+    end,
+  },
+  selectionCount = {
+    function()
+      local starts = vim.fn.line "v"
+      local ends = vim.fn.line "."
+      local count = starts <= ends and ends - starts + 1 or starts - ends + 1
+      local wc = vim.fn.wordcount()
+      return count .. ":" .. wc["visual_chars"]
+    end,
+    cond = function()
+      return vim.fn.mode():find "[Vv]" ~= nil
     end,
   },
 }

@@ -3,6 +3,9 @@ local keymap = vim.keymap.set
 -- remove keymaps on space
 -- vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
+-- Open file
+vim.keymap.set({ "n", "v" }, "<leader>o", ":!xdg-open %<CR>")
+
 keymap("n", "Q", "<nop>")
 
 -- Quit remaps
@@ -62,6 +65,12 @@ keymap({ "n", "v" }, "<leader>d", [["_d]])
 -- keymap("n", "<C-K>", ":m .-2<CR>==")
 -- keymap("v", "<C-K>", ":m '<-2<CR>gv=gv")
 -- keymap("i", "<C-K>", "<Esc>:m .-2<CR>==gi")
+
+-- remap tabs
+keymap("n", "<leader>to", ":tabnew<CR>")
+keymap("n", "<leader>tq", ":tabclose<CR>")
+keymap("n", "<leader>tn", ":tabnext<CR>")
+keymap("n", "<leader>tp", ":tabprevious<CR>")
 
 -- remap split windows
 keymap("n", "<leader>sv", "<C-w>v") -- split vertically

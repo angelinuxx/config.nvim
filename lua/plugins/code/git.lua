@@ -2,24 +2,16 @@ return {
   {
     "sindrets/diffview.nvim",
     cmd = { "DiffviewOpen", "DiffviewClose", "DiffviewToggleFiles", "DiffviewFocusFiles", "DiffviewFileHistory" },
+    keys = {
+      { "<leader>gdr", "<cmd>DiffviewFileHistory<cr>", desc = "Git diff history" },
+      { "<leader>gdb", "<cmd>DiffviewFileHistory %<cr>", desc = "Git diff history for current buffer" },
+      { "<leader>gdq", "<cmd>DiffviewClose<cr>", desc = "Git diff close" },
+    },
     config = function()
       vim.opt.fillchars:append "diff:╱"
       require("diffview").setup {}
     end,
   },
-  --[[ {
-    "TimUntersberger/neogit",
-    cmd = "Neogit",
-    -- enabled = false,
-    config = {
-      integrations = { diffview = true },
-    },
-    keys = {
-      { "<leader>gs", "<cmd>Neogit kind=floating<cr>", desc = "Status" },
-      { "<leader>gc", "<cmd>Neogit commit kind=floating<cr>", desc = "Commit" },
-      { "<leader>gp", "<cmd>Neogit push kind=floating<cr>", desc = "Push" },
-    },
-  }, ]]
   {
     "lewis6991/gitsigns.nvim",
     event = { "BufReadPre", "BufNewFile" },

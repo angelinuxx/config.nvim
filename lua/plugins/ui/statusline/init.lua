@@ -23,11 +23,11 @@ return {
             },
           },
           always_divide_middle = true,
-          globalstatus = true,
+          -- globalstatus = true,
         },
         sections = {
           lualine_a = { "mode" },
-          lualine_b = { components.git_repo, "branch" },
+          lualine_b = { "branch" },
           lualine_c = { components.diff, components.diagnostics, components.separator, components.lsp_client },
 
           lualine_x = {
@@ -42,7 +42,7 @@ return {
             "progress",
           },
           lualine_y = {},
-          lualine_z = { "location" },
+          lualine_z = { "location", components.selectionCount },
         },
         inactive_sections = {
           lualine_a = {},
@@ -52,7 +52,7 @@ return {
           lualine_y = {},
           lualine_z = {},
         },
-        extensions = { "nvim-tree", "aerial",  "toggleterm", "quickfix" },
+        extensions = { "nvim-tree", "aerial", "toggleterm", "quickfix" },
       }
     end,
   },

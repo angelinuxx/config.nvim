@@ -20,7 +20,10 @@ return {
             -- end)
             -- if not err and inside_decorator then
             --   return "<!-- %s -->"
-            -- end
+          end
+          -- comment string for dotenv
+          if vim.bo.filetype == "dotenv" then
+            return "# %s"
           end
         end,
       },
@@ -63,7 +66,11 @@ return {
         desc = "Previous todo comment",
       },
       { "<leader>ft", "<cmd>TodoTelescope<cr>", desc = "Project todos" },
-      { "<leader>t", "<cmd>TodoQuickFix<cr>", desc = "Open todo quick fix" },
+      {
+        "<leader>ct",
+        "<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>",
+        desc = "Open todo quick fix for current buffer",
+      },
     },
   },
 }
