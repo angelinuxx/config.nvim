@@ -27,6 +27,36 @@ vim.api.nvim_create_autocmd("FocusGained", { command = "checktime" })
 --   end,
 -- })
 
+-- Check for huge files
+local huge_buf = vim.api.nvim_create_augroup("HugeBuffer", { clear = true })
+vim.api.nvim_create_autocmd("BufReadPre", {
+  callback = function()
+    local filepath = vim.fn.expand "%:p" -- Get full path of the file
+    local file_size = vim.fn.getfsize(filepath)
+    local longest_line_len = 0
+    local file = io.open(filepath, "r") -- Open file for reading
+    if file then
+      for line in file:lines() do
+        longest_line_len = math.max(longest_line_len, #line)
+      end
+      file:close()
+    end
+    print("line len: ", longest_line_len, "file size: ", file_size)
+    if longest_line_len > 2000 or file_size > 1000000 then
+      vim.b.huge_buf = true
+      vim.cmd "syntax off"
+      vim.opt_local.foldmethod = "manual"
+      vim.opt_local.spell = false
+      vim.b.enable_autoformat = false
+    else
+      vim.b.huge_buf = false
+    end
+    print("HUGE: ", vim.b.huge_buf)
+  end,
+  group = huge_buf,
+  pattern = "*",
+})
+
 -- windows to close
 vim.api.nvim_create_autocmd("FileType", {
   pattern = {

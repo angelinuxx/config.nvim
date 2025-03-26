@@ -46,6 +46,10 @@ return {
         sync_install = false,
         highlight = {
           enable = true,
+          disable = function()
+            -- disable for huge files to improve performance
+            return vim.b.huge_buf
+          end,
         },
         -- enable indentation
         indent = { enable = true },
