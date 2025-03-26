@@ -16,9 +16,6 @@ return {
       cmdline = {
         view = "cmdline",
       },
-      messages = {
-        view_search = "cmdline",
-      },
       routes = {
         {
           filter = {
@@ -67,7 +64,7 @@ return {
         },
       },
       presets = {
-        bottom_search = true, -- use a classic bottom cmdline for search
+        bottom_search = true, -- use a classic bottom cmdline for search (when false works only if cmdline view != cmdline)
         command_palette = false, -- position the cmdline and popupmenu together
         long_message_to_split = true, -- long messages will be sent to a split
         inc_rename = true, -- enables an input dialog for inc-rename.nvim
