@@ -3,6 +3,9 @@ local keymap = vim.keymap.set
 -- remove keymaps on space
 -- vim.keymap.set({ "n", "v" }, "<Space>", "<Nop>", { silent = true })
 
+-- Open file
+vim.keymap.set({ "n", "v" }, "<leader>o", ":!xdg-open %<CR>")
+
 keymap("n", "Q", "<nop>")
 
 -- Quit remaps
