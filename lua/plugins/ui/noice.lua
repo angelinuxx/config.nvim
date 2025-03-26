@@ -27,16 +27,19 @@ return {
         },
       },
       views = {
-        cmdline_popup = {
+        --[[ cmdline_popup = {
           position = {
-            row = 15,
-            col = "50%",
+            row = vim.o.lines - 1,
+            -- col = "50%",
           },
           size = {
-            width = 60,
+            width = "100%",
             height = "auto",
           },
-        },
+          border = {
+            style = "none",
+          },
+        }, ]]
         --[[ popupmenu = {
           relative = "editor",
           position = {
