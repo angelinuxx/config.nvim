@@ -23,7 +23,7 @@ return {
             },
           },
           always_divide_middle = true,
-          globalstatus = true,
+          -- globalstatus = true,
         },
         sections = {
           lualine_a = { "mode" },
