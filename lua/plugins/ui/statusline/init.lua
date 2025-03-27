@@ -15,7 +15,7 @@ return {
           component_separators = {},
           section_separators = { left = "", right = "" },
           disabled_filetypes = {
-            statusline = { "alpha", "lazy" },
+            statusline = { "alpha", "lazy", "avante", "aerial" },
             winbar = {
               "help",
               "alpha",
