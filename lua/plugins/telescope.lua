@@ -75,16 +75,27 @@ return {
 
     keymap.set("n", "<leader>ff", "<cmd>Telescope find_files<cr>", { desc = "Fuzzy find files in cwd" })
     keymap.set("n", "<leader>fr", "<cmd>Telescope oldfiles<cr>", { desc = "Fuzzy find recent files" })
-    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find string in cwd" })
     keymap.set("n", "<leader>fl", "<cmd>Telescope resume<cr>", { desc = "Resume last search" })
+    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
+    keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>", { desc = "Find Open Buffers" })
+    keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status<cr>", { desc = "Git Status" })
+    keymap.set("n", "<leader>fgh", "<cmd>Telescope git_bcommits<cr>", { desc = "Git Buffer History" })
+
+    -- find neovim config files
+    keymap.set("n", "<leader>fn", function()
+      require("telescope.builtin").find_files {
+        prompt_title = "< Neovim Config Files >",
+        cwd = vim.fn.stdpath "config",
+      }
+    end, { desc = "Find Neovim Config Files" })
+
+    keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>", { desc = "Fuzzy find string in cwd" })
     keymap.set("v", "<leader>fs", function()
       local text = get_visual_selection()
       require("telescope.builtin").live_grep { default_text = text }
     end, { desc = "Find selected string in cwd", noremap = true, silent = true })
-    keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>", { desc = "Find string under cursor in cwd" })
-    keymap.set("n", "<leader>fo", "<cmd>Telescope buffers<cr>", { desc = "Find Open Buffers" })
-    keymap.set("n", "<leader>fgs", "<cmd>Telescope git_status<cr>", { desc = "Git Status" })
-    keymap.set("n", "<leader>fgh", "<cmd>Telescope git_commits<cr>", { desc = "Git History" })
-    keymap.set("n", "<leader>fgh", "<cmd>Telescope git_bcommits<cr>", { desc = "Git Buffer History" })
+
+    -- TODO: Fix and make this work to replace <leader>fs
+    -- require("plugins.telescope.multigrep").setup()
   end,
 }
