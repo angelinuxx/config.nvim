@@ -1,15 +1,5 @@
 return {
   {
-    "akinsho/toggleterm.nvim",
-    version = "*",
-    config = true,
-    enabled = false,
-    keys = {
-      -- { "<leader>xt", "<cmd>ToggleTerm<cr>", desc = "Toggle Terminal" },
-      -- { "<leader>xd", "<cmd>TermExec cmd='lazydocker' direction='float'<cr>", desc = "Lazy Docker" },
-    },
-  },
-  {
     "voldikss/vim-floaterm",
     lazy = false,
     config = function()

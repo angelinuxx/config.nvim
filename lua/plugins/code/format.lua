@@ -15,6 +15,23 @@ return {
         golines = {
           args = { "-m", "120" },
         },
+        phpcbf = {
+          -- command = "phpcbf",
+          -- args = { "--standard=ruleset.xml", "-" },
+          command = "sh",
+          -- fallback to default config if no ruleset in project root
+          args = {
+            "-c",
+            [[
+            if [ -f ruleset.xml ]; then
+              phpcbf --standard=ruleset.xml -
+            else
+              phpcbf - 
+            fi
+            ]],
+          },
+          stdin = true,
+        },
         injected = {
           -- Set to true to ignore errors
           ignore_errors = false,
@@ -62,7 +79,7 @@ return {
         graphql = { "prettier" },
         lua = { "stylua" },
         python = { "isort", "black" },
-        php = { { "pint", "php-cs-fixer" } },
+        php = { "pint" },
         blade = { "blade-formatter" },
         go = { "gofmt", "golines" },
         gotmpl = { "djlint" },

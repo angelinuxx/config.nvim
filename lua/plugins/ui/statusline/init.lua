@@ -28,10 +28,14 @@ return {
         sections = {
           lualine_a = { "mode" },
           lualine_b = { "branch" },
-          lualine_c = { components.diff, components.diagnostics, components.separator, components.lsp_client },
+          lualine_c = {
+            components.diff,
+            components.diagnostics,
+            components.separator --[[ , components.lsp_client ]],
+          },
 
           lualine_x = {
-            components.capslock,
+            -- components.capslock,
             components.lazy_updates,
             components.codeium,
             "filename",

@@ -35,6 +35,7 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     "nvim-tree/nvim-web-devicons",
     "cljoly/telescope-repo.nvim",
+    { "benfowler/telescope-luasnip.nvim", module = "telescope._extensions.luasnip" },
   },
   lazy = false,
   config = function()
@@ -69,6 +70,7 @@ return {
 
     telescope.load_extension "fzf"
     telescope.load_extension "repo"
+    telescope.load_extension "luasnip"
 
     -- set keymaps
     local keymap = vim.keymap -- for conciseness

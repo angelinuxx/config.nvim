@@ -17,6 +17,9 @@ vim.opt.rtp:prepend(lazypath)
 
 -- Configure lazy.nvim
 require("lazy").setup({
+  rocks = {
+    hererocks = true,
+  },
   spec = {
     { import = "plugins" },
     { import = "plugins.ui" },

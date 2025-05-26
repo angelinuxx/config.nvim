@@ -96,7 +96,7 @@ return {
     } ]]
 
     -- configure angular server
-    local angularls_path = require("mason-registry").get_package("angular-language-server"):get_install_path()
+    --[[ local angularls_path = require("mason-registry").get_package("angular-language-server"):get_install_path()
     local cmd = {
       "ngserver",
       "--stdio",
@@ -106,16 +106,16 @@ return {
       "--ngProbeLocations",
       vim.fn.getcwd(),
       -- table.concat({ angularls_path .. "/node_modules/@angular/language-server", vim.fn.getcwd() }, ","),
-    }
-    lspconfig["angularls"].setup {
-      -- cmd = cmd,
-      capabilities = capabilities,
-      on_attach = on_attach,
-      -- on_new_config = function(new_config, new_root_dir)
-      --   new_config.cmd = cmd
-      -- end,
-      filetypes = { "html", "typescript", "typescriptreact", "angular" },
-    }
+    } ]]
+    -- lspconfig["angularls"].setup {
+    --   -- cmd = cmd,
+    --   capabilities = capabilities,
+    --   on_attach = on_attach,
+    --   -- on_new_config = function(new_config, new_root_dir)
+    --   --   new_config.cmd = cmd
+    --   -- end,
+    --   -- filetypes = { "html", "typescript", "typescriptreact", "angular" },
+    -- }
 
     -- configure css server
     lspconfig["cssls"].setup {
@@ -211,9 +211,9 @@ return {
           logging = {
             level = "DEBUG",
           },
-          indexer = {
-            stub_paths = { "%project_root%/.ide-helper" },
-          },
+          -- indexer = {
+          --   stub_paths = { "%project_root%/.ide-helper" },
+          -- },
         },
       },
     }

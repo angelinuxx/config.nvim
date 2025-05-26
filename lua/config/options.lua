@@ -70,4 +70,4 @@ vim.opt.splitright = true
 vim.opt.splitbelow = true
 
 -- enable format on save by default
-vim.g.enable_autoformat = true
+vim.g.enable_autoformat = false

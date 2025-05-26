@@ -62,7 +62,7 @@ return {
         "isort", -- python formatter (sort imports)
         "black", -- python formatter
         "pint", -- php formatter
-        "php-cs-fixer", -- php formatter
+        "phpcbf", -- php formatter, used to handle max line lenght and psr-12
         "blade-formatter", -- blade template formatter (Laravel)
         -- "pylint", -- python linter
         "eslint_d", -- js linter

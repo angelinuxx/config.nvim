@@ -5,6 +5,7 @@ local keymap = vim.keymap.set
 
 -- Open file
 vim.keymap.set({ "n", "v" }, "<leader>o", ":!xdg-open %<CR>")
+vim.keymap.set({ "n" }, "<leader>km", ":!xdg-open /home/angelinuxx/Dev/Keyboard/Printable_layout_angelinuxx.pdf<CR>")
 
 keymap("n", "Q", "<nop>")
 
@@ -65,6 +66,10 @@ keymap({ "n", "v" }, "<leader>d", [["_d]])
 -- keymap("n", "<C-K>", ":m .-2<CR>==")
 -- keymap("v", "<C-K>", ":m '<-2<CR>gv=gv")
 -- keymap("i", "<C-K>", "<Esc>:m .-2<CR>==gi")
+
+-- map quick fix navigation
+keymap("n", "<leader>k", ":cnext<CR>zz")
+keymap("n", "<leader>j", ":cprev<CR>zz")
 
 -- remap tabs
 keymap("n", "<leader>to", ":tabnew<CR>")

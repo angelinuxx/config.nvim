@@ -41,7 +41,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
       end
       file:close()
     end
-    print("line len: ", longest_line_len, "file size: ", file_size)
     if longest_line_len > 2000 or file_size > 1000000 then
       vim.b.huge_buf = true
       vim.cmd "syntax off"
@@ -51,7 +50,6 @@ vim.api.nvim_create_autocmd("BufReadPre", {
     else
       vim.b.huge_buf = false
     end
-    print("HUGE: ", vim.b.huge_buf)
   end,
   group = huge_buf,
   pattern = "*",

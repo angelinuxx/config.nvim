@@ -2,9 +2,9 @@ local icons = require "config.icons"
 local lazy_status = require "lazy.status"
 
 return {
-  capslock = {
-    require("capslock").status_string,
-  },
+  -- capslock = {
+  --   require("capslock").status_string,
+  -- },
   unsaved = {
     function()
       if vim.bo.modified then

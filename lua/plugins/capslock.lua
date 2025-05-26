@@ -1,4 +1,5 @@
 return {
+  enabled = false,
   "barklan/capslock.nvim",
   event = "VeryLazy",
   config = function()
