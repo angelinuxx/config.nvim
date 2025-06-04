@@ -8,7 +8,9 @@ return {
     opts = {
       keymaps = {
         ["<C-h>"] = false,
-        ["gr"] = "actions.refresh",
+        ["<C-l>"] = false,
+        ["<C-s>"] = false,
+        ["<C-r>"] = "actions.refresh",
       },
     },
     -- Optional dependencies
