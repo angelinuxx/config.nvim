@@ -7,6 +7,7 @@ return {
         "emmet-language-server",
         "docker-compose-language-service",
         "dockerfile-language-server",
+        "pint",
       },
     },
   },
