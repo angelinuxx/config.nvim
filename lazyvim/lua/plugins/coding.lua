@@ -105,4 +105,11 @@ return {
     },
     config = true,
   },
+  {
+    "angelinuxx/npm-lens.nvim",
+    keys = {
+      { "<leader>Nt", "<cmd>NpmLensToggle<cr>", desc = "Toggle NpmLens" },
+      { "<leader>Nr", "<cmd>NpmLensRefresh<cr>", desc = "Refresh NpmLens" },
+    },
+  },
 }
