@@ -11,6 +11,9 @@ vim.g.ai_cmp = false
 -- disable animations
 vim.g.snacks_animate = false
 
+-- disable autopairs
+vim.g.minipairs_disable = true
+
 -- keep at least 8 lines from the edges
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
@@ -21,3 +24,6 @@ vim.opt.colorcolumn = "120"
 
 -- Change php lsp to intellephense
 -- vim.g.lazyvim_php_lsp = "intelephense"
+
+-- disable spell
+vim.opt.spell = false

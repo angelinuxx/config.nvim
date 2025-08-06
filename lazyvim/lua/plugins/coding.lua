@@ -20,6 +20,7 @@ return {
             score_offset = 15, -- Tune by preference
             opts = {
               insert = true, -- Insert emoji (default) or complete its name
+              -- stylua: ignore
               ---@type string|table|fun():table
               trigger = function()
                 return { ":" }
@@ -84,6 +85,7 @@ return {
       { "<leader>la", ":Laravel artisan<cr>" },
       { "<leader>lr", ":Laravel routes<cr>" },
       { "<leader>lm", ":Laravel related<cr>" },
+      { "<leader>lh", ":Laravel history<cr>" },
       {
         "gf",
         function()

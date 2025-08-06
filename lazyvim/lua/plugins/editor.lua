@@ -51,14 +51,12 @@ return {
       pre_hook = function()
         vim.cmd("set nocul")
         vim.cmd("NoMatchParen")
-        vim.g.minipairs_disable = true
-        -- TODO:g blink
+        -- TODO: disable blink
         -- require("cmp").setup({ enabled = false })
       end,
       post_hook = function()
         vim.cmd("set cul")
         vim.cmd("DoMatchParen")
-        vim.g.minipairs_disable = false
         -- TODO: enable blink
         -- require("cmp").setup({ enabled = true })
       end,
