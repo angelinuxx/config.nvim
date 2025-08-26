@@ -4,6 +4,13 @@ local LualineUtil = require("util.lualine")
 return {
   {
     "akinsho/bufferline.nvim",
+    -- tmp workaround waiting to be merged: https://github.com/LazyVim/LazyVim/pull/6354
+    init = function()
+      local bufline = require("catppuccin.groups.integrations.bufferline")
+      function bufline.get()
+        return bufline.get_theme()
+      end
+    end,
     opts = {
       options = {
         mode = "tabs",
