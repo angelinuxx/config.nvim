@@ -1,6 +1,7 @@
 return {
   {
     "mfussenegger/nvim-lint",
+    optional = true,
     init = function()
       require("snacks")
         .toggle({
@@ -50,5 +51,12 @@ return {
         })
         :map("<leader>uP")
     end,
+    opts = {
+      linters = {
+        ["markdownlint-cli2"] = {
+          args = { "--config", vim.fn.stdpath("config") .. "/.markdownlint-cli2.yaml", "--" },
+        },
+      },
+    },
   },
 }
