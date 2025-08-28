@@ -3,7 +3,13 @@ return {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
-        php = { "pint" },
+        php = function()
+          if require("util.helpers").has_phpcs_ruleset() then
+            return { "phpcbf" }
+          else
+            return { "pint" }
+          end
+        end,
       },
       formatters = {
         ["markdownlint-cli2"] = {
