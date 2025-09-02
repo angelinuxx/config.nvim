@@ -13,7 +13,7 @@ M.has_value = function(tab, val)
 end
 
 --- Checks if project has phpcs.xml(.dist)
-M.has_phpcs_ruleset = function()
+M.has_local_phpcs_ruleset = function()
   local cwd = vim.fn.getcwd()
   return vim.fn.filereadable(cwd .. "/phpcs.xml") == 1 or vim.fn.filereadable(cwd .. "/phpcs.xml.dist") == 1
 end

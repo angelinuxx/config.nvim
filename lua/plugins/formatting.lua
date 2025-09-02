@@ -4,16 +4,21 @@ return {
     opts = {
       formatters_by_ft = {
         php = function()
-          if require("util.helpers").has_phpcs_ruleset() then
+          if require("util.helpers").has_local_phpcs_ruleset() then
             return { "phpcbf" }
           else
-            return { "pint" }
+            return { "phpcbf", "pint" }
           end
         end,
       },
       formatters = {
         ["markdownlint-cli2"] = {
-          args = { "--config", vim.fn.stdpath("config") .. "/.markdownlint-cli2.yaml", "--fix", "$FILENAME" },
+          args = {
+            "--config",
+            vim.fn.stdpath("config") .. "/global-configs/.markdownlint-cli2.yaml",
+            "--fix",
+            "$FILENAME",
+          },
         },
       },
     },
