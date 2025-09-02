@@ -10,6 +10,7 @@ return {
             return { "phpcbf", "pint" }
           end
         end,
+        xml = { "xmlformatter" },
       },
       formatters = {
         ["markdownlint-cli2"] = {
@@ -19,6 +20,9 @@ return {
             "--fix",
             "$FILENAME",
           },
+        },
+        xmlformatter = {
+          prepend_args = { "--selfclose" },
         },
       },
     },

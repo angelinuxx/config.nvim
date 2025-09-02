@@ -2,11 +2,11 @@
 <ruleset name="Global">
   <description>Global PHPCS rules</description>
   <!-- Include PSR12 standard -->
-  <rule ref="PSR12"></rule>
+  <rule ref="PSR12"/>
   <rule ref="Generic.Files.LineLength">
     <properties>
-      <property name="lineLimit" value="120"></property>
-      <property name="absoluteLineLimit" value="0"></property>
+      <property name="lineLimit" value="120"/>
+      <property name="absoluteLineLimit" value="0"/>
     </properties>
   </rule>
 </ruleset>
