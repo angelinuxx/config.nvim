@@ -8,6 +8,7 @@ return {
         "docker-compose-language-service",
         "dockerfile-language-server",
         "xmlformatter",
+        "phpcbf",
         "pint",
       },
     },

@@ -1,13 +1,14 @@
+local helpers = require("util.helpers")
 return {
   {
     "stevearc/conform.nvim",
     opts = {
       formatters_by_ft = {
         php = function()
-          if require("util.helpers").has_local_phpcs_ruleset() then
-            return { "phpcbf" }
+          if helpers.has_local_phpcs_ruleset() then
+            return { "phpcbf" } -- use only local rules
           else
-            return { "phpcbf", "pint" }
+            return { "pint" } -- use pint if there is no phpcs ruleset in cwd
           end
         end,
         xml = { "xmlformatter" },
@@ -23,6 +24,17 @@ return {
         },
         xmlformatter = {
           prepend_args = { "--selfclose" },
+        },
+        pint = {
+          command = "pint",
+          args = function()
+            if helpers.has_local_pint_ruleset() then
+              return { "$FILENAME" } --- local config exists, just pass the file
+            else
+              local global_config = vim.fn.stdpath("config") .. "/global-configs/pint.json"
+              return { "$FILENAME", "--config=" .. global_config } -- pass the global config
+            end
+          end,
         },
       },
     },

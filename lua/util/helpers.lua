@@ -18,4 +18,10 @@ M.has_local_phpcs_ruleset = function()
   return vim.fn.filereadable(cwd .. "/phpcs.xml") == 1 or vim.fn.filereadable(cwd .. "/phpcs.xml.dist") == 1
 end
 
+--- Checks if project has pint.json
+M.has_local_pint_ruleset = function()
+  local cwd = vim.fn.getcwd()
+  return vim.fn.filereadable(cwd .. "/pint.json") == 1
+end
+
 return M
