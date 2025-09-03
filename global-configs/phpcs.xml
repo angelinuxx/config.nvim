@@ -2,11 +2,18 @@
 <ruleset name="Global">
   <description>Global PHPCS rules</description>
   <!-- Include PSR12 standard -->
-  <rule ref="PSR12"/>
+  <rule ref="PSR12">
+    <!-- Disable some PSR12 rules that i don't like -->
+    <exclude name="PSR12.Classes.ClassInstantiation.MissingParentheses"/>
+    <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceBefore"/>
+    <exclude name="PSR12.Operators.OperatorSpacing.NoSpaceAfter"/>
+  </rule>
   <rule ref="Generic.Files.LineLength">
     <properties>
       <property name="lineLimit" value="120"/>
       <property name="absoluteLineLimit" value="0"/>
     </properties>
   </rule>
+  <rule ref="Squiz.WhiteSpace.OperatorSpacing"/>
+  <rule ref="Squiz.Strings.ConcatenationSpacing"/>
 </ruleset>
