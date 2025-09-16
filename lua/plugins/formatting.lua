@@ -1,6 +1,18 @@
 local helpers = require "util.helpers"
 return {
   {
+    "mason-org/mason.nvim",
+    opts = {
+      ensure_installed = {
+        "xmlformatter",
+        "phpcbf",
+        "pint",
+        "djlint",
+        "blade-formatter",
+      },
+    },
+  },
+  {
     "stevearc/conform.nvim",
     opts = function(_, opts)
       -- Formatters by filetype
@@ -14,6 +26,7 @@ return {
       end
       opts.formatters_by_ft.xml = { "xmlformatter" }
       opts.formatters_by_ft.htmldjango = { "djlint" }
+      opts.formatters_by_ft.blade = { "blade-formatter" }
 
       -- Formatters config
       opts.formatters = opts.formatters or {}
