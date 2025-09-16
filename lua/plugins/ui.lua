@@ -1,12 +1,12 @@
 local icons = LazyVim.config.icons
-local LualineUtil = require("util.lualine")
+local LualineUtil = require "util.lualine"
 
 return {
   {
     "akinsho/bufferline.nvim",
     -- tmp workaround waiting to be merged: https://github.com/LazyVim/LazyVim/pull/6354
     init = function()
-      local bufline = require("catppuccin.groups.integrations.bufferline")
+      local bufline = require "catppuccin.groups.integrations.bufferline"
       function bufline.get()
         return bufline.get_theme()
       end
@@ -40,6 +40,16 @@ return {
           },
         },
       }
+
+      -- append to lualine_x table the filetype extended
+      opts.sections.lualine_x = opts.sections.lualine_x or {}
+      table.insert(opts.sections.lualine_x, {
+        "filetype",
+        icon_only = false,
+        separator = "/",
+        padding = { left = 1, right = 1 },
+      })
+
       opts.sections.lualine_y = {
         { "progress", separator = " ", padding = { left = 1, right = 0 } },
         { "location", padding = { left = 0, right = 1 } },
@@ -47,11 +57,11 @@ return {
       }
 
       -- WINBAR
-      local jsonpath = require("jsonpath")
+      local jsonpath = require "jsonpath"
       local winbarBase = {
         lualine_c = {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
-          { LazyVim.lualine.pretty_path({ length = 5 }) },
+          { LazyVim.lualine.pretty_path { length = 5 } },
         },
         lualine_x = {
           {
@@ -69,16 +79,16 @@ return {
       opts.inactive_winbar = winbarBase
       -- do not add trouble symbols if aerial is enabled
       -- And allow it to be overriden for some buffer types (see autocmds)
-      if vim.g.trouble_lualine and LazyVim.has("trouble.nvim") then
-        local trouble = require("trouble")
-        local symbols = trouble.statusline({
+      if vim.g.trouble_lualine and LazyVim.has "trouble.nvim" then
+        local trouble = require "trouble"
+        local symbols = trouble.statusline {
           mode = "symbols",
           groups = {},
           title = false,
           filter = { range = true },
           format = "{kind_icon}{symbol.name:Normal}",
           hl_group = "lualine_c_normal",
-        })
+        }
         table.insert(opts.winbar.lualine_c, {
           symbols and symbols.get,
           cond = function()
