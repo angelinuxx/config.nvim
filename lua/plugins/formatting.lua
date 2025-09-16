@@ -1,5 +1,4 @@
 local helpers = require "util.helpers"
-local util = require "conform.util"
 return {
   {
     "stevearc/conform.nvim",
@@ -14,6 +13,7 @@ return {
         end
       end
       opts.formatters_by_ft.xml = { "xmlformatter" }
+      opts.formatters_by_ft.htmldjango = { "djlint" }
 
       -- Formatters config
       opts.formatters = opts.formatters or {}

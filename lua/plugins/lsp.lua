@@ -10,6 +10,7 @@ return {
         "xmlformatter",
         "phpcbf",
         "pint",
+        "djlint",
       },
     },
   },
