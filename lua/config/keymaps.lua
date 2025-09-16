@@ -38,8 +38,10 @@ map(
 map("v", "<leader>/", [[y/\V<C-R>"<CR>]], { desc = "Search selection in cur buffer" })
 
 -- Better viewing
-map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up" }) -- move half page up keeping cursor in the middle
-map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down" }) -- move half page down keeping cursor in the middle
+map("n", "<C-d>", "<C-d>zz", { desc = "Scroll down (half page)" }) -- move half page down keeping cursor in the middle
+map("n", "<C-u>", "<C-u>zz", { desc = "Scroll up (half page)" }) -- move half page up keeping cursor in the middle
+map("n", "<C-f>", "<C-f>zz", { desc = "Page down" }) -- move a page up keeping cursor in the middle
+map("n", "<C-b>", "<C-b>zz", { desc = "Page up" }) -- move a page down keeping cursor in the middle
 
 -- Clipboard
 map("x", "<leader>p", [["_dP]], { desc = "Paste over selection w/o yank" }) -- paste over selection w/o yank
