@@ -17,7 +17,7 @@ vim.g.minipairs_disable = true
 -- keep at least 8 lines from the edges
 vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
-vim.opt.isfname:append("@-@")
+vim.opt.isfname:append "@-@"
 
 -- print limit at 120
 vim.opt.colorcolumn = "120"
