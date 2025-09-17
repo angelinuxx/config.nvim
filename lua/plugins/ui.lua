@@ -141,4 +141,36 @@ return {
       },
     },
   },
+
+  {
+    "weirongxu/plantuml-previewer.vim",
+    ft = { "plantuml" },
+    dependencies = {
+      "tyru/open-browser.vim",
+    },
+    keys = {
+      { "<leader>pp", "<cmd>PlantUmlOpen<cr>", desc = "Preview PlantUML (Browser)" },
+      {
+        "<leader>pv",
+        function()
+          local file = vim.fn.expand "%:p"
+          local output = file:gsub("%.puml$", ".png")
+          -- vim.notify("PlantUML preview, src " .. file .. ", out " .. output, "info")
+
+          -- generate PNG with plantuml
+          local cmd = string.format("plantumljar %s", vim.fn.shellescape(file))
+          vim.fn.jobstart(cmd, {
+            on_exit = function()
+              -- vim.notify("PlantUML preview done, src " .. file .. ", out " .. output, "info")
+              -- show image inline in a Neovim buffer
+              vim.schedule(function()
+                vim.cmd("vsplit " .. output)
+              end)
+            end,
+          })
+        end,
+        desc = "Preview PlantUML (VSplit)",
+      },
+    },
+  },
 }
