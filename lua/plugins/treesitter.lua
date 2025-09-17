@@ -1,6 +1,5 @@
 vim.filetype.add {
   pattern = {
-    [".*%.blade%.php"] = "blade",
     [".*%.puml"] = "plantuml",
   },
 }
