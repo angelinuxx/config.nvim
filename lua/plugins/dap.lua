@@ -29,8 +29,8 @@ return {
     "mfussenegger/nvim-dap",
     optional = true,
     opts = function()
-      local dap = require("dap")
-      local path = require("mason-registry").get_package("php-debug-adapter"):get_install_path()
+      local dap = require "dap"
+      local path = vim.fn.exepath "php-debug-adapter"
       dap.adapters.php = {
         type = "executable",
         command = "node",

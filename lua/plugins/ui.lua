@@ -19,7 +19,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "phelipetls/jsonpath.nvim" },
+    -- dependencies = { "phelipetls/jsonpath.nvim" },
     opts = function(_, opts)
       opts.options.component_separators = { left = "󰿟", right = "󰿟" }
       opts.options.section_separators = { left = "", right = "" }
@@ -57,23 +57,23 @@ return {
       }
 
       -- WINBAR
-      local jsonpath = require "jsonpath"
+      -- local jsonpath = require "jsonpath"
       local winbarBase = {
         lualine_c = {
           { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
           { LazyVim.lualine.pretty_path { length = 5 } },
         },
-        lualine_x = {
-          {
-            function()
-              ---@diagnostic disable-next-line: missing-parameter
-              return jsonpath.get()
-            end,
-            cond = function()
-              return vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "json"
-            end,
-          },
-        },
+        -- lualine_x = {
+        --   {
+        --     function()
+        --       ---@diagnostic disable-next-line: missing-parameter
+        --       return jsonpath.get()
+        --     end,
+        --     cond = function()
+        --       return vim.api.nvim_get_option_value("filetype", { buf = 0 }) == "json"
+        --     end,
+        --   },
+        -- },
       }
       opts.winbar = winbarBase
       opts.inactive_winbar = winbarBase
@@ -143,7 +143,7 @@ return {
   },
 
   {
-    "weirongxu/plantuml-previewer.vim",
+    "angelinuxx/plantuml-previewer.vim",
     ft = { "plantuml" },
     dependencies = {
       "tyru/open-browser.vim",
