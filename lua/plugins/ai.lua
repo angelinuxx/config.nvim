@@ -17,15 +17,15 @@ return {
     "jackMort/ChatGPT.nvim",
     event = "VeryLazy",
     config = function()
-      require("chatgpt").setup({
+      require("chatgpt").setup {
         openai_params = {
           max_tokens = 4095,
           model = "gpt-4o-mini",
         },
-      })
+      }
 
-      local wk = require("which-key")
-      wk.add({
+      local wk = require "which-key"
+      wk.add {
         { "<leader>ac", group = "ChatGPT" },
         { "<leader>acc", "<cmd>ChatGPT<CR>", desc = "ChatGPT" },
         { "<leader>ace", "<cmd>ChatGPTEditWithInstruction<CR>", desc = "Edit with instruction", mode = { "n", "v" } },
@@ -45,7 +45,7 @@ return {
           desc = "Code Readability Analysis",
           mode = { "n", "v" },
         },
-      })
+      }
     end,
     dependencies = {
       "nvim-telescope/telescope.nvim",
@@ -72,7 +72,7 @@ return {
       "nvim-lua/plenary.nvim",
       "MunifTanjim/nui.nvim",
       --- The below dependencies are optional,
-      "echasnovski/mini.icons",
+      "nvim-mini/mini.icons",
       {
         -- support for image pasting
         "HakonHarnes/img-clip.nvim",

@@ -14,7 +14,7 @@ return {
       },
     },
     -- Optional dependencies
-    dependencies = { { "echasnovski/mini.icons", opts = {} } },
+    dependencies = { { "nvim-mini/mini.icons", opts = {} } },
     -- Lazy loading is not recommended because it is very tricky to make it work correctly in all situations.
     lazy = false,
     keys = {
@@ -49,14 +49,14 @@ return {
         },
       },
       pre_hook = function()
-        vim.cmd("set nocul")
-        vim.cmd("NoMatchParen")
+        vim.cmd "set nocul"
+        vim.cmd "NoMatchParen"
         -- TODO: disable blink
         -- require("cmp").setup({ enabled = false })
       end,
       post_hook = function()
-        vim.cmd("set cul")
-        vim.cmd("DoMatchParen")
+        vim.cmd "set cul"
+        vim.cmd "DoMatchParen"
         -- TODO: enable blink
         -- require("cmp").setup({ enabled = true })
       end,
