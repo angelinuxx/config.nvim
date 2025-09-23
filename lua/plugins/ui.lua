@@ -19,7 +19,7 @@ return {
   },
   {
     "nvim-lualine/lualine.nvim",
-    dependencies = { "angelinuxx/jsonpath.nvim", branch = "fix/deprecated-treesitter-api" },
+    dependencies = { "phelipetls/jsonpath.nvim" },
     opts = function(_, opts)
       opts.options.component_separators = { left = "󰿟", right = "󰿟" }
       opts.options.section_separators = { left = "", right = "" }
@@ -149,7 +149,7 @@ return {
       "tyru/open-browser.vim",
     },
     keys = {
-      { "<leader>pp", "<cmd>PlantUmlOpen<cr>", desc = "Preview PlantUML (Browser)" },
+      { "<leader>pp", "<cmd>PlantumlOpen<cr>", desc = "Preview PlantUML (Browser)" },
       {
         "<leader>pv",
         function()
