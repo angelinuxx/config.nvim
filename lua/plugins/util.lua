@@ -12,24 +12,28 @@ return {
     init = function()
       vim.api.nvim_create_autocmd("VimEnter", {
         callback = function()
-          local pattern = vim.fn.expand("~") .. "/notes"
+          local pattern = vim.fn.expand "~" .. "/notes"
           local cwd = vim.fn.getcwd()
           -- Load plugin if we're under the notes directory
           if cwd:match(pattern) then
             -- Only load once
             if not require("lazy.core.config").plugins["obsidian.nvim"]._.loaded then
               vim.schedule(function()
-                require("lazy").load({ plugins = { "obsidian.nvim" } })
+                require("lazy").load { plugins = { "obsidian.nvim" } }
               end)
             end
           end
         end,
       })
+      vim.keymap.set("n", "<leader>Ot", "<cmd>Obsidian today<cr>", { desc = "Today note" })
+      vim.keymap.set("n", "<leader>Oy", "<cmd>Obsidian yesterday<cr>", { desc = "Yesterday note" })
+      vim.keymap.set("n", "<leader>OT", "<cmd>Obsidian tomorrow<cr>", { desc = "Tomorrow note" })
+      vim.keymap.set("n", "<leader>Od", "<cmd>Obsidian dailies<cr>", { desc = "Dailies" })
     end,
     -- Load plugin if we read or create a note under the notes directory
     event = {
-      "BufReadPre " .. vim.fn.expand("~") .. "/notes/*.md",
-      "BufNewFile " .. vim.fn.expand("~") .. "/notes/*.md",
+      "BufReadPre " .. vim.fn.expand "~" .. "/notes/*.md",
+      "BufNewFile " .. vim.fn.expand "~" .. "/notes/*.md",
     },
     dependencies = {
       -- Required.
