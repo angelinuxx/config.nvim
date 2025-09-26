@@ -32,6 +32,16 @@ return {
       { "<leader>uN", "<cmd>NoNeckPain<CR>", desc = "Center buffer" },
     },
   },
+  -- Mom plugin 😄
+  {
+    "CodeGeek04/wellness-break.nvim",
+    config = function()
+      require("wellness-break").setup {
+        min_keystrokes = 3000, -- Minimum keystrokes before break
+        max_keystrokes = 5000, -- Maximum keystrokes before break
+      }
+    end,
+  },
   -- Modify buffer using multiple-cursors
   {
     "brenton-leighton/multiple-cursors.nvim",
