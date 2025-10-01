@@ -21,17 +21,6 @@ return {
       { "-", "<cmd>Oil<cr>", desc = "Open File Explorer" },
     },
   },
-  -- Certer buffer
-  {
-    "shortcuts/no-neck-pain.nvim",
-    version = "*",
-    opts = {
-      width = 130,
-    },
-    keys = {
-      { "<leader>uN", "<cmd>NoNeckPain<CR>", desc = "Center buffer" },
-    },
-  },
   -- Mom plugin 😄
   {
     "CodeGeek04/wellness-break.nvim",
