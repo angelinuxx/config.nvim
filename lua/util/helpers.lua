@@ -18,6 +18,15 @@ M.has_local_phpcs_ruleset = function()
   return vim.fn.filereadable(cwd .. "/phpcs.xml") == 1 or vim.fn.filereadable(cwd .. "/phpcs.xml.dist") == 1
 end
 
+--- Returns the correct config path for php_cs
+M.get_phpcs_standard = function()
+  if M.has_local_phpcs_ruleset() then
+    return vim.fn.getcwd() .. "/phpcs.xml"
+  else
+    return vim.fn.stdpath "config" .. "/global-configs/phpcs.xml"
+  end
+end
+
 --- Checks if project has pint.json
 M.has_local_pint_ruleset = function()
   local cwd = vim.fn.getcwd()

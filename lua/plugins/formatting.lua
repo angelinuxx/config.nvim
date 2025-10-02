@@ -18,7 +18,7 @@ return {
       -- Formatters by filetype
       opts.formatters_by_ft = opts.formatters_by_ft or {}
       opts.formatters_by_ft.php = function()
-        if helpers.has_local_phpcs_ruleset() then
+        if helpers.has_local_phpcs_ruleset() and not helpers.has_local_pint_ruleset() then
           return { "phpcbf" } -- use only local rules
         else
           return { "pint" } -- use pint if there is no phpcs ruleset in cwd
