@@ -26,7 +26,7 @@ return {
     "CodeGeek04/wellness-break.nvim",
     config = function()
       require("wellness-break").setup {
-        min_keystrokes = 3000, -- Minimum keystrokes before break
+        min_keystrokes = 4900, -- Minimum keystrokes before break
         max_keystrokes = 5000, -- Maximum keystrokes before break
       }
     end,
