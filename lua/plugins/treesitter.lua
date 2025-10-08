@@ -1,8 +1,10 @@
 vim.filetype.add {
   pattern = {
     [".*%.puml"] = "plantuml",
+    [".*%.env.*"] = "dotenv",
   },
 }
+vim.treesitter.language.register("bash", "dotenv")
 return {
   {
     "aklt/plantuml-syntax",
