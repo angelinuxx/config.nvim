@@ -1,7 +1,7 @@
 vim.filetype.add {
   pattern = {
     [".*%.puml"] = "plantuml",
-    [".*%.env.*"] = "dotenv",
+    ["%.env[%w_.-]*"] = "dotenv",
   },
 }
 vim.treesitter.language.register("bash", "dotenv")
