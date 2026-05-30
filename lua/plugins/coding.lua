@@ -80,44 +80,48 @@ return {
   },
   {
     "adalessa/laravel.nvim",
+    enabled = false,
     dependencies = {
-      "tpope/vim-dotenv",
+      -- "tpope/vim-dotenv",
       "MunifTanjim/nui.nvim",
       "nvim-lua/plenary.nvim",
       "nvim-neotest/nvim-nio",
-      "kevinhwang91/promise-async",
+      -- "kevinhwang91/promise-async",
     },
-    cmd = { "Laravel" },
+    ft = { "php", "blade" },
+    event = {
+      "BufEnter composer.json",
+    },
     -- stylua: ignore
     keys = {
-        { "<leader>ll", function() Laravel.pickers.laravel() end,              desc = "Laravel: Open Laravel Picker" },
-        { "<c-g>",      function() Laravel.commands.run("view:finder") end,    desc = "Laravel: Open View Finder" },
-        { "<leader>la", function() Laravel.pickers.artisan() end,              desc = "Laravel: Open Artisan Picker" },
-        { "<leader>lt", function() Laravel.commands.run("actions") end,        desc = "Laravel: Open Actions Picker" },
-        { "<leader>lr", function() Laravel.pickers.routes() end,               desc = "Laravel: Open Routes Picker" },
-        { "<leader>lh", function() Laravel.run("artisan docs") end,            desc = "Laravel: Open Documentation" },
-        { "<leader>lm", function() Laravel.pickers.make() end,                 desc = "Laravel: Open Make Picker" },
-        { "<leader>lc", function() Laravel.pickers.commands() end,             desc = "Laravel: Open Commands Picker" },
-        { "<leader>lo", function() Laravel.pickers.resources() end,            desc = "Laravel: Open Resources Picker" },
-        { "<leader>lp", function() Laravel.commands.run("command_center") end, desc = "Laravel: Open Command Center" },
-        {
+      { "<leader>ll", function() Laravel.pickers.laravel() end,              desc = "Laravel: Open Laravel Picker" },
+      { "<c-g>",      function() Laravel.commands.run("view:finder") end,    desc = "Laravel: Open View Finder" },
+      { "<leader>la", function() Laravel.pickers.artisan() end,              desc = "Laravel: Open Artisan Picker" },
+      { "<leader>lt", function() Laravel.commands.run("actions") end,        desc = "Laravel: Open Actions Picker" },
+      { "<leader>lr", function() Laravel.pickers.routes() end,               desc = "Laravel: Open Routes Picker" },
+      { "<leader>lh", function() Laravel.run("artisan docs") end,            desc = "Laravel: Open Documentation" },
+      { "<leader>lm", function() Laravel.pickers.make() end,                 desc = "Laravel: Open Make Picker" },
+      { "<leader>lc", function() Laravel.pickers.commands() end,             desc = "Laravel: Open Commands Picker" },
+      { "<leader>lo", function() Laravel.pickers.resources() end,            desc = "Laravel: Open Resources Picker" },
+      { "<leader>lp", function() Laravel.commands.run("command_center") end, desc = "Laravel: Open Command Center" },
+      { "<leader>lu", function() Laravel.commands.run("hub") end,            desc = "Laravel Artisan hub" },
+      {
         "gf",
         function()
-            local ok, res = pcall(function()
+          local ok, res = pcall(function()
             if Laravel.app("gf").cursorOnResource() then
-                return "<cmd>lua Laravel.commands.run('gf')<cr>"
+              return "<cmd>lua Laravel.commands.run('gf')<cr>"
             end
-            end)
-            if not ok or not res then
+          end)
+          if not ok or not res then
             return "gf"
-            end
-            return res
+          end
+          return res
         end,
         expr = true,
         noremap = true,
-        },
+      },
     },
-    event = { "VeryLazy" },
     opts = {
       lsp_server = "phpactor",
       features = {
@@ -133,5 +137,9 @@ return {
       { "<leader>Nt", "<cmd>NpmLensToggle<cr>", desc = "Toggle NpmLens" },
       { "<leader>Nr", "<cmd>NpmLensRefresh<cr>", desc = "Refresh NpmLens" },
     },
+  },
+  {
+    "fei6409/log-highlight.nvim",
+    opts = {},
   },
 }

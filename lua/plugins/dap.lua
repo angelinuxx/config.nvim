@@ -16,7 +16,7 @@ return {
           },
           substitutepath = { {
             from = vim.fn.getcwd(),
-            to = "/go/src/app",
+            to = "/go/app",
           } },
         },
       },

@@ -24,10 +24,11 @@ return {
   -- Mom plugin 😄
   {
     "CodeGeek04/wellness-break.nvim",
+    enabled = false,
     config = function()
       require("wellness-break").setup {
-        min_keystrokes = 4900, -- Minimum keystrokes before break
-        max_keystrokes = 5000, -- Maximum keystrokes before break
+        min_keystrokes = 9900, -- Minimum keystrokes before break
+        max_keystrokes = 9999, -- Maximum keystrokes before break
       }
     end,
   },

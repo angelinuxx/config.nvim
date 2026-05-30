@@ -84,6 +84,16 @@ return {
             },
           },
         },
+        -- TODO: use function to extend default keys
+        -- vtsls = {
+        --   keys = {
+        --     {
+        --       "<leader>cu",
+        --       LazyVim.lsp.action["source.removeUnused.ts"],
+        --       desc = "Remove unused imports",
+        --     },
+        --   },
+        -- },
       },
     },
   },

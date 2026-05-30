@@ -52,10 +52,14 @@ return {
           end
         end,
       }
+      opts.formatters.sqlfluff = {
+        args = { "format", "-" },
+      }
     end,
   },
   {
     "2nthony/sortjson.nvim",
+    commit = "5df32e78f97c53b7f3f408da51d60f9529e14936",
     cmd = {
       "SortJSONByAlphaNum",
       "SortJSONByAlphaNumReverse",
