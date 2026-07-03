@@ -2,13 +2,21 @@ return {
   {
     "mason-org/mason.nvim",
     opts = {
+      -- the roslyn package lives in a community registry
+      registries = {
+        "github:mason-org/mason-registry",
+        "github:Crashdummyy/mason-registry",
+      },
       ensure_installed = {
         "emmet-language-server",
         "docker-compose-language-service",
         "dockerfile-language-server",
+        "roslyn",
       },
     },
   },
+  -- no longer needed: it only served omnisharp's go-to-definition
+  { "Hoffs/omnisharp-extended-lsp.nvim", enabled = false },
   {
     "neovim/nvim-lspconfig",
     opts = {
@@ -18,6 +26,8 @@ return {
       -- stylua: ignore
       ---@type lspconfig.options
       servers = {
+        -- replaced by roslyn.nvim (see coding.lua)
+        omnisharp = { enabled = false },
         eslint = {
           settings = {
             workingDirectory = { mode = "auto" },

@@ -156,4 +156,20 @@ return {
     "fei6409/log-highlight.nvim",
     opts = {},
   },
+  -- Official Roslyn C# language server (same as the VS Code C# extension),
+  -- replaces omnisharp from the lang.dotnet extra (disabled in lsp.lua)
+  {
+    "seblyng/roslyn.nvim",
+    ft = "cs",
+    -- in init (not config) so it runs before the plugin's own
+    -- vim.lsp.enable("roslyn"), which would spawn the server without it
+    init = function()
+      -- the server needs the .NET 10 runtime, installed user-level in
+      -- ~/.dotnet (the system apt only provides up to .NET 9 on 22.04)
+      vim.lsp.config("roslyn", {
+        cmd_env = { DOTNET_ROOT = vim.fn.expand("~/.dotnet") },
+      })
+    end,
+    opts = {},
+  },
 }
