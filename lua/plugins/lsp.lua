@@ -28,6 +28,11 @@ return {
       servers = {
         -- replaced by roslyn.nvim (see coding.lua)
         omnisharp = { enabled = false },
+        angularls = {
+          -- only attach in real Angular projects (angular.json / nx.json),
+          -- otherwise it duplicates vtsls results (references, etc.)
+          workspace_required = true,
+        },
         eslint = {
           settings = {
             workingDirectory = { mode = "auto" },
