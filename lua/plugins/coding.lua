@@ -5,6 +5,7 @@ return {
     "saghen/blink.cmp",
     dependencies = {
       "moyiz/blink-emoji.nvim",
+      { "saiashirwad/blink-cmp-claude", opts = {} },
     },
     ---@module 'blink.cmp'
     ---@type blink.cmp.Config
@@ -13,7 +14,20 @@ return {
         default = {
           "emoji",
         },
+        per_filetype = {
+          claudeprompt = { "claude-slash", "claude-files", "path" },
+        },
         providers = {
+          ["claude-slash"] = {
+            module = "blink-cmp-claude.slash",
+            name = "Claude",
+            score_offset = 100,
+          },
+          ["claude-files"] = {
+            module = "blink-cmp-claude.files",
+            name = "Files",
+            score_offset = 90,
+          },
           emoji = {
             module = "blink-emoji",
             name = "Emoji",
