@@ -40,7 +40,6 @@ return {
       "nvim-lua/plenary.nvim",
 
       -- Optional
-      "saghen/blink.cmp",
       "folke/snacks.nvim",
       "MeanderingProgrammer/render-markdown.nvim",
     },
@@ -62,10 +61,6 @@ return {
         date_format = "%Y-%m-%d",
         time_format = "%H:%M",
         substitutions = {},
-      },
-      completion = {
-        nvim_cmp = false,
-        blink = true,
       },
       picker = {
         name = "snacks.pick",
